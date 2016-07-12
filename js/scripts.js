@@ -13,24 +13,25 @@ var currentScore= 0;
 
 
 var roll= function() {
-  alert( rolledNumber());
-  if (rolledNumber() === 1){
+  var randomNumber= rolledNumber();
+  alert( randomNumber);
+  if (randomNumber === 1){
     currentScore = 0;
   }else {
-    currentScore += rolledNumber();
+    currentScore += randomNumber;
   }
 
 }
 
 
-var hold= function(currentScore) {
-  return currentScore += rolledNumber();
-}
-var win= function(currentScore) {
-  if (Score >= 100){
-  return currentScore += rolledNumber()+ "You Win";
-}
-}
+// var hold= function(currentScore) {
+//   return currentScore += rolledNumber();
+// }
+// var win= function(currentScore) {
+//   if (Score >= 100){
+//   return currentScore += rolledNumber()+ "You Win";
+// }
+// }
 
 Player.prototype.calculation=function(currentScore){
   return currentScore + this.score;
