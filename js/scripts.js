@@ -47,16 +47,15 @@ $(document).ready(function() {
   $(".btn-roll").click(function() {
       roll();
     event.preventDefault();
-  var Player= newPlayer()
 
+$("ul#results-player1").append("<li><span class='results'>" + currentScore  + "</span></li>");
   });
-  $("ul#results-player1").append("<li><span class='results'>" + currentScore  + "</span></li>");
+
 
   $(".btn-hold").click(function() {
     hold();
-  $("ul#results-player1").append("<li><span class='results'>" + currentScore  + "</span></li>");
 
 
-});
+
 });
 });
