@@ -10,7 +10,7 @@ var rolledNumber1 =function(){
 };
 
 var currentScore1= 0;
-
+var totalScore1= 0;
 
 var roll1= function() {
   var randomNumber1= rolledNumber1();
@@ -18,7 +18,7 @@ var roll1= function() {
   if (randomNumber1 === 1){
     currentScore1 = 0;
   }else {
-    currentScore1 += randomNumber1;
+    totalScore= currentScore1 += randomNumber1;
   }
 
 }
@@ -30,7 +30,7 @@ var rolledNumber2 =function(){
 };
 
 var currentScore2= 0;
-
+var totalScore2= 0;
 
 var roll2= function() {
   var randomNumber2= rolledNumber2();
@@ -46,16 +46,18 @@ var roll2= function() {
 
 
 var hold1= function(currentScore1) {
-  return currentScore1 += rolledNumber1();
+  currentScore1=0;
+  totalScore1= (currentScore1 += rolledNumber1());
 }
 var hold2= function(currentScore2) {
-  return currentScore2 += rolledNumber2();
+  currentScore2=0;
+  totalScore2= currentScore2 += rolledNumber2();
 }
-var win= function(currentScore) {
-  if (Score >= 100){
-  return currentScore += rolledNumber()+ "You Win";
-}
-}
+// var win= function(currentScore) {
+//   if (totalScore >= 100){
+//   return currentScore += rolledNumber()+ "You Win";
+// }
+// }
 
 Player.prototype.calculation=function(currentScore){
   return currentScore + this.score;
@@ -73,23 +75,23 @@ $(document).ready(function() {
       roll1();
     event.preventDefault();
 
-$("ul#results-player1").text(currentScore1);
+$("ul#currentScore-player1").text(currentScore1);
 });
 
   $(".btn-roll-player2").click(function() {
       roll2();
     event.preventDefault();
 
-  $("ul#results-player2").text(currentScore2);
+  $("ul#currentScore-player2").text(currentScore2);
   });
 
 });
 
   $(".btn-hold-player1").click(function() {
     hold1();
-  $("ul#results-player1").text(currentScore1);
+  $("ul#totalScore-player1").text(totalScore1);
 });
   $(".btn-hold-player2").click(function() {
     hold2();
-  $("ul#results-player2").text(currentScore1);
+  $("ul#totalScore-player2").text(totalScore2);
 });
