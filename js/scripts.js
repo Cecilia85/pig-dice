@@ -4,17 +4,33 @@ function Player(score, turn) {
   this.turn = turn;
 }
 
-var currentScore=0;
+
+var rolledNumber =function(){
+  return Math.floor((Math.random() * (6)) + 1);
+};
+
+var currentScore= 0;
+
+
 var roll= function() {
-  return Math.floor((Math.random() * 6) + 1);
-}
-var hold= function(currentScore) {
-  return currentScore;
-}
-var win= function(currentScore) {
-  return currentScore + "You Win";
+  alert( rolledNumber());
+  if (rolledNumber() === 1){
+    currentScore = 0;
+  }else {
+    currentScore += rolledNumber();
+  }
+
 }
 
+
+var hold= function(currentScore) {
+  return currentScore += rolledNumber();
+}
+var win= function(currentScore) {
+  if (Score >= 100){
+  return currentScore += rolledNumber()+ "You Win";
+}
+}
 
 Player.prototype.calculation=function(currentScore){
   return currentScore + this.score;
@@ -28,27 +44,19 @@ Player.prototype.calculation=function(currentScore){
 
 // user interface logic
 $(document).ready(function() {
-  $("form#Info").submit(function(event) {
-  $("form#movements").show();
+  $(".btn-roll").click(function() {
+      roll();
     event.preventDefault();
+  var Player= newPlayer()
 
-    var inputtedName = $("input#new-name").val();
-    var inputtedInitialDeposit = $("input#new-initialdeposit").val();
-    var newAccount = new Balance(inputtedName,inputtedInitialDeposit);
-    $("ul#balance").append("<li><span class='balance'>" + newAccount.name + " " + newAccount.initialdeposit + "</span></li>")
+  });
+  $("ul#results-player1").append("<li><span class='results'>" + currentScore  + "</span></li>");
+
+  $(".btn-hold").click(function() {
+    hold();
+  $("ul#results-player1").append("<li><span class='results'>" + currentScore  + "</span></li>");
 
 
 });
-});
-      $("form#movements").submit(function(event) {
-      event.preventDefault();
-      $("form#movements").each(function(){
-        var inputtedDeposit = $("input#new-deposit").val();
-        var inputtedWithdraw = $("input#new-withdraw").val();
-        var finalBalance =new final(inputtedDeposit, inputtedWithdraw);
-        $("ul#balance").append("<li><span class='balance'>" + finalBalance.depositwithdraw() + "</span></li>");
-
-
-
 });
 });
