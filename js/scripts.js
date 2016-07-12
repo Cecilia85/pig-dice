@@ -49,7 +49,7 @@ $(document).ready(function() {
       roll();
     event.preventDefault();
 
-$("ul#results-player1").append("<li><span class='results'>" + currentScore  + "</span></li>");
+$("ul#results-player1").text(currentScore);
   });
 
 
