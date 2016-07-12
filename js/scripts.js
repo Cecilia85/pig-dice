@@ -45,18 +45,22 @@ Player.prototype.calculation=function(currentScore){
 
 // user interface logic
 $(document).ready(function() {
-  $(".btn-roll").click(function() {
+  $(".btn-roll-player1").click(function() {
       roll();
     event.preventDefault();
 
 $("ul#results-player1").text(currentScore);
+});
+
+  $(".btn-roll-player2").click(function() {
+      roll();
+    event.preventDefault();
+
+  $("ul#results-player2").text(currentScore);
   });
 
-
-  $(".btn-hold").click(function() {
-    hold();
-
-
-
 });
-});
+
+  // $("btn-hold-player2").click(function() {
+  //   hold();
+  // $("ul#results-player1").text(currentScore);
