@@ -11,6 +11,9 @@ var rolledNumber1 =function(){
 
 var currentScore1= 0;
 var totalScore1= 0;
+var randomNumber1=0;
+var lastScore1= totalScore1+randomNumber1;
+
 
 var roll1= function() {
   var randomNumber1= rolledNumber1();
@@ -18,9 +21,19 @@ var roll1= function() {
   if (randomNumber1 === 1){
     currentScore1 = 0;
   }else {
-    totalScore= currentScore1 += randomNumber1;
+    totalScore1= currentScore1 += randomNumber1;
   }
 
+}
+var hold1= function(currentScore1) {
+  currentScore1=0;
+  lastScore1= totalScore1+randomNumber1;
+}
+
+var win1= function(currentScore1) {
+  if (totalScore1 >= 100){
+  return totalScore1 + "You Win";
+}
 }
 
 
@@ -31,6 +44,8 @@ var rolledNumber2 =function(){
 
 var currentScore2= 0;
 var totalScore2= 0;
+var randomNumber2=0;
+var lastScore2= totalScore2+randomNumber2;
 
 var roll2= function() {
   var randomNumber2= rolledNumber2();
@@ -38,26 +53,20 @@ var roll2= function() {
   if (randomNumber2 === 1){
     currentScore2 = 0;
   }else {
-    currentScore2 += randomNumber2;
+  totalScore2= currentScore2 += randomNumber2;
   }
 
 }
 
-
-
-var hold1= function(currentScore1) {
-  currentScore1=0;
-  totalScore1= (currentScore1 += rolledNumber1());
-}
 var hold2= function(currentScore2) {
   currentScore2=0;
-  totalScore2= currentScore2 += rolledNumber2();
+  lastScore2= totalScore2+randomNumber2;
 }
-// var win= function(currentScore) {
-//   if (totalScore >= 100){
-//   return currentScore += rolledNumber()+ "You Win";
-// }
-// }
+var win2= function(currentScore2) {
+  if (totalScore2 >= 100){
+  return totalScore2 + "You Win";
+}
+}
 
 Player.prototype.calculation=function(currentScore){
   return currentScore + this.score;
@@ -85,13 +94,22 @@ $("ul#currentScore-player1").text(currentScore1);
   $("ul#currentScore-player2").text(currentScore2);
   });
 
-});
+
 
   $(".btn-hold-player1").click(function() {
     hold1();
-  $("ul#totalScore-player1").text(totalScore1);
+  $("ul#totalScore-player1").text(lastScore1);
+  if (totalScore1 >= 100){
+  return totalScore1 + "You Win";
+  // $("ul#currentScore-player1").text(currentScore1=0);
+};
 });
   $(".btn-hold-player2").click(function() {
     hold2();
-  $("ul#totalScore-player2").text(totalScore2);
+  $("ul#totalScore-player2").text(lastScore2);
+  if (totalScore1 >= 100){
+  return totalScore1 + "You Win";
+    // $("ul#currentScore-player1").text(currentScore2=0);
+};
+});
 });
