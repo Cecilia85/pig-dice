@@ -1,115 +1,69 @@
 //business logic
-function Player(score, turn) {
-  this.score = score;
-  this.turn = turn;
+function Player() {
+  this.currentScore,
+  this.totalScore
+
 }
-
-//for player1//
-var rolledNumber1 =function(){
-  return Math.floor((Math.random() * (6)) + 1);
-};
-
-var currentScore1= 0;
-var totalScore1= 0;
-var randomNumber1=0;
-var lastScore1= totalScore1+randomNumber1;
-
-
-var roll1= function() {
-  var randomNumber1= rolledNumber1();
-  alert( randomNumber1);
-  if (randomNumber1 === 1){
-    currentScore1 = 0;
+Player.prototype.roll=function() {
+  var randomNumber= rolledNumber();
+  alert( randomNumber);
+  if (randomNumber === 1){
+    this.currentScore = 0;
   }else {
-    totalScore1= currentScore1 += randomNumber1;
-  }
+    this.currentScore+=randomNumber;
 
-}
-var hold1= function(currentScore1) {
-  currentScore1=0;
-  lastScore1= totalScore1+randomNumber1;
-}
-
-var win1= function(currentScore1) {
-  if (totalScore1 >= 100){
-  return totalScore1 + "You Win";
-}
-}
-
-
-//for player 2//
-var rolledNumber2 =function(){
-  return Math.floor((Math.random() * (6)) + 1);
-};
-
-var currentScore2= 0;
-var totalScore2= 0;
-var randomNumber2=0;
-var lastScore2= totalScore2+randomNumber2;
-
-var roll2= function() {
-  var randomNumber2= rolledNumber2();
-  alert( randomNumber2);
-  if (randomNumber2 === 1){
-    currentScore2 = 0;
-  }else {
-  totalScore2= currentScore2 += randomNumber2;
   }
 
 }
 
-var hold2= function(currentScore2) {
-  currentScore2=0;
-  lastScore2= totalScore2+randomNumber2;
-}
-var win2= function(currentScore2) {
-  if (totalScore2 >= 100){
-  return totalScore2 + "You Win";
-}
+Player.prototype.hold=function() {
+  this.currentScore=0;
+  this.totalScore += this.currentScore;
 }
 
-Player.prototype.calculation=function(currentScore){
-  return currentScore + this.score;
-}
-
-
-
-
-
+var rolledNumber =function(){
+  return Math.floor((Math.random() * (6)) + 1);
+};
 
 
 // user interface logic
 $(document).ready(function() {
+  var player1=new Player();
+  var player2=new Player();
   $(".btn-roll-player1").click(function() {
-      roll1();
-    event.preventDefault();
+      player1.roll();
+      $("#currentScore-player1").text(currentScore);
 
-$("ul#currentScore-player1").text(currentScore1);
 });
 
   $(".btn-roll-player2").click(function() {
-      roll2();
-    event.preventDefault();
-
-  $("ul#currentScore-player2").text(currentScore2);
+      player2.roll();
+      $("#currentScore-player2").text(currentScore);
   });
 
 
 
   $(".btn-hold-player1").click(function() {
-    hold1();
-  $("ul#totalScore-player1").text(lastScore1);
-  if (totalScore1 >= 100){
-  return totalScore1 + "You Win";
-  // $("ul#currentScore-player1").text(currentScore1=0);
-};
+    player1.hold();
+  $("#totalScore-player1").text(totalScore);
+  $("#currentScore-player1").text(currentScore);
+
 });
+
   $(".btn-hold-player2").click(function() {
-    hold2();
-  $("ul#totalScore-player2").text(lastScore2);
-  if (totalScore1 >= 100){
-  return totalScore1 + "You Win";
-    // $("ul#currentScore-player1").text(currentScore2=0);
-};
+    player2.hold();
+  $("#totalScore-player2").text(totalScore);
+$("#currentScore-player2").text(currentScore);
+
+
+
+
 });
+// if (player1.totalScore >= 10){
+//   alert("You Win");
+// }
+// else if (player2.totalScore >= 10){
+//   alert("You Win");
+// }
+
 });
