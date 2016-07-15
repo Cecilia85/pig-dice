@@ -9,28 +9,64 @@
   </head>
   <body>
     <div class="container">
-      <h1>Start playing</h1>
+      <h1> Pig Dice</h1>
+      <h2> Instructions</h2>
+      <p> Each turn, a player repeatedly rolls a die until either a 1 is rolled or the player decides to "hold"<p>
+
+        <ul>  If the player rolls a 1, they score nothing and it becomes the next player's turn.</ul>
+        <ul>  If the player rolls any other number, it is added to their turn total and the player's turn continues.</ul>
+        <ul>  If a player chooses to "hold", their turn total is added to their score, and it becomes the next player's turn.</ul>
+      <p>The first player to score 100 or more points wins.</p>
+
+      <h2>Start playing</h2>
+      <h3>Enter your names</h3>
+      <form id="Info">
+        <div class="form-group">
+          <label for="new-name1">Player 1 Name</label>
+          <input type="text" class="form-control" id="new-name1">
+        </div>
+        <div class="form-group">
+          <label for="new-name2">Player 2 name</label>
+          <input type="text" class="form-control" id="new-name2">
+        </div>
+
+        <button type="submit" class="btn btn btn-primary">All set!</button>
+      </form>
 
 
-      <h2>Player1</h2>
-      <button type="submit" class="btn-roll-player1">Roll the dice</button>
-      <button type="submit" class="btn-hold-player1">Hold!</button>
+ <div class=row>
+   <div class=col-md-6>
+      <h3>Player1</h3>
+      <div id= "pig-you-win1">
+        <img src="img/pig-you-win.jpg">
+              </div>
+      <div id="new-name1"></div>
+      <button type="submit" class="btn-roll-player1  btn btn-danger">Roll the dice</button>
+      <button type="submit" class="btn-hold-player1  btn btn-danger">Hold!</button>
       <h3>Current Score</h3>
       <div id="currentScore-player1"></div>
       <h3>Total Score</h3>
       <div id="totalScore-player1"></div>
 
+</div>
 
-
-
-      <h2>Player2</h2>
-      <button type="submit" class="btn-roll-player2">Roll the dice</button>
-      <button type="submit" class="btn-hold-player2">Hold!</button>
+<div class=col-md-6>
+      <h3>Player2</h3>
+      <div id= "pig-you-win2">
+        <img src="img/pig-you-win.jpg">
+              </div>
+      <div id="new-name2"></div>
+      <button type="submit" class="btn-roll-player2 btn btn-danger">Roll the dice</button>
+      <button type="submit" class="btn-hold-player2 btn btn-danger">Hold!</button>
       <h3>Current Score</h3>
       <div id="currentScore-player2"></div>
       <h3>Total Score</h3>
       <div id="totalScore-player2"></div>
+</div>
+
+
 
    </div>
+ </div>
 </body>
 </html>

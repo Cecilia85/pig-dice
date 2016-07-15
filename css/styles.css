@@ -1,4 +1,19 @@
-
-#movements{
+#pig-you-win1{
   display:none;
+  width: 50%
+
+}
+#pig-you-win2{
+  display:none;
+  width: 50%;
+
+}
+
+#Info{
+  width:70%;
+}
+
+body{
+  background: #ffccff;
+
 }
