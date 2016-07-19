@@ -1,11 +1,6 @@
 //business logic
-function Info(name) {
-  this.name= name;
-}
 
-Info.prototype.fullCalc=function(){
-  return this.name
-}
+
 
 function Player() {
   this.currentScore=0;
@@ -39,17 +34,17 @@ var rolledNumber =function(){
 
 // user interface logic
 $(document).ready(function() {
-  $("form#Info").submit(function(event) {
-    event.preventDefault();
-    var Name1= new Name();
-    var Name2= new Name();
-    var inputtedName1 = $("input#new-name1").val();
-    var inputtedName2 = $("input#new-name2").val();
-    var newNames = new Info(inputtedName1,inputtedName2);
-    $("#new-name1").text(Name1.name);
-    $("#new-name2").text(Name2.name);
-
-});
+//   $("form#Info").submit(function(event) {
+//     event.preventDefault();
+//     var Name1= new Name();
+//     var Name2= new Name();
+//     var inputtedName1 = $("input#new-name1").val();
+//     var inputtedName2 = $("input#new-name2").val();
+//     var newNames = new Info(inputtedName1,inputtedName2);
+//     $("#new-name1").text(Name1.name);
+//     $("#new-name2").text(Name2.name);
+//
+// });
 
 
   var player1=new Player();
